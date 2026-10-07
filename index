@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maria Rogotskaya — AI Director / Director / Producer</title>
+  
+  <!-- Запрет индексации поисковиками -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+
+  <style>
+    :root {
+      --bg: #0d0e11;
+      --card-bg: #14161b;
+      --text-main: #f0f1f3;
+      --text-muted: #8b909a;
+      --accent: #ffffff;
+      --border: #22262f;
+      --tag-bg: #1f232d;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      padding: 48px 0 36px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .profile-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .titles h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .titles .role {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .titles .location {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    .header-contact a, .footer-contact a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 6px;
+      transition: background-color 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+
+    .header-contact a:hover, .footer-contact a:hover {
+      background-color: var(--card-bg);
+      border-color: var(--text-muted);
+    }
+
+    /* MAIN GALLERY */
+    main {
+      flex: 1;
+      padding: 44px 0;
+    }
+
+    .section-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      background-color: #000;
+    }
+
+    /* 16:9 для горизонтальных */
+    .video-card.horizontal .video-wrapper {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* 9:16 для вертикальных */
+    .video-card.vertical .video-wrapper {
+      aspect-ratio: 9 / 16;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Метаданные / подписи */
+    .card-meta {
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .tag-live-action {
+      font-size: 0.82rem;
+      color: #b8c0cc;
+      background: var(--tag-bg);
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body {
+        padding: 0 16px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 32px 0 24px 0;
+      }
+
+      .header-contact, .footer-contact {
+        width: 100%;
+      }
+
+      .header-contact a, .footer-contact a {
+        display: block;
+        text-align: center;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="profile-group">
+        <img src="maria_port_port.png" alt="Maria Rogotskaya" class="avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' fill=\'%23222\'><rect width=\'100\' height=\'100\'/><text x=\'50%\' y=\'55%\' fill=\'%23666\' font-size=\'14\' text-anchor=\'middle\' font-family=\'sans-serif\'>Maria</text></svg>'">
+        <div class="titles">
+          <h1>Maria Rogotskaya</h1>
+          <div class="role">AI Director / Director / Producer</div>
+          <div class="location">Los Angeles, California</div>
+        </div>
+      </div>
+      <div class="header-contact">
+        <a href="mailto:maria.rogotskaya@gmail.com">maria.rogotskaya@gmail.com</a>
+      </div>
+    </header>
+
+    <!-- PORTFOLIO GALLERY -->
+    <main>
+      <div class="section-title">Selected Works</div>
+      <div class="gallery">
+
+        <!-- 1: Горизонтальный -->
+        <div class="video-card horizontal">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233548479?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 1">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 2: Горизонтальный -->
+        <div class="video-card horizontal">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233552961?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 2">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 3: Горизонтальный -->
+        <div class="video-card horizontal">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233555021?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 3">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 4: Вертикальный (9:16) -->
+        <div class="video-card vertical">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233556343?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 4">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 5: Вертикальный (9:16) -->
+        <div class="video-card vertical">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233558079?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 5">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 6: Горизонтальный (Live Action / Real Cinema) -->
+        <div class="video-card horizontal">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233566767?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 6">
+            </iframe>
+          </div>
+          <div class="card-meta">
+            <span class="tag-live-action">Real cinema, not AI :)</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-copy">© Maria Rogotskaya. All rights reserved.</div>
+      <div class="footer-contact">
+        <a href="mailto:maria.rogotskaya@gmail.com">maria.rogotskaya@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Vimeo Player API -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iframes = document.querySelectorAll('iframe');
+      const players = [];
+
+      iframes.forEach(iframe => {
+        const player = new Vimeo.Player(iframe);
+        players.push(player);
+
+        // Возврат на 0 сек и стоп после окончания видео
+        player.on('ended', () => {
+          player.setCurrentTime(0).then(() => {
+            player.pause();
+          }).catch(err => console.error(err));
+        });
+
+        // Пауза других видео при старте воспроизведения
+        player.on('play', () => {
+          players.forEach(otherPlayer => {
+            if (otherPlayer !== player) {
+              otherPlayer.pause();
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

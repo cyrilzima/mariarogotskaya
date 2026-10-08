@@ -145,19 +145,12 @@
       border: 0;
     }
 
-    /* Сетка горизонтальных роликов (16:9) */
+    /* Сетка горизонтальных роликов (16:9) - 2х2 */
     .grid-horizontal {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-bottom: 48px;
-    }
-
-    .grid-horizontal .video-card:nth-child(3) {
-      grid-column: span 2;
-      max-width: 720px;
-      margin: 0 auto;
-      width: 100%;
     }
 
     .grid-horizontal .video-wrapper {
@@ -172,7 +165,8 @@
     .grid-vertical {
       display: flex;
       justify-content: center;
-      gap: 28px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .grid-vertical .video-card {
@@ -184,7 +178,7 @@
       aspect-ratio: 9 / 16;
     }
 
-    /* Финальный ролик 6 (Real cinema) */
+    /* Финальный ролик (Real cinema) */
     .featured-block {
       max-width: 820px;
       margin: 0 auto 40px auto;
@@ -256,11 +250,6 @@
         margin-bottom: 36px;
       }
 
-      .grid-horizontal .video-card:nth-child(3) {
-        grid-column: span 1;
-        max-width: 100%;
-      }
-
       .grid-vertical {
         flex-direction: column;
         align-items: center;
@@ -304,10 +293,10 @@
 
     <!-- PORTFOLIO GALLERY -->
     <main>
-      <!-- Секция горизонтальных работ (1, 2, 3) -->
+      <!-- Секция горизонтальных работ (4 ролика) -->
       <div class="section-title">Horizontal / AI</div>
       <div class="grid-horizontal">
-        <!-- 1: Бывший 3-й ролик -->
+        <!-- 1 -->
         <div class="video-card">
           <div class="video-wrapper">
             <iframe 
@@ -318,7 +307,7 @@
           </div>
         </div>
 
-        <!-- 2: Бывший 2-й ролик -->
+        <!-- 2 -->
         <div class="video-card">
           <div class="video-wrapper">
             <iframe 
@@ -329,7 +318,7 @@
           </div>
         </div>
 
-        <!-- 3: Бывший 1-й ролик -->
+        <!-- 3 -->
         <div class="video-card">
           <div class="video-wrapper">
             <iframe 
@@ -339,18 +328,40 @@
             </iframe>
           </div>
         </div>
+
+        <!-- 4: Новый ролик, maudi iti horizontal -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://player.vimeo.com/video/1233922452?badge=0&autopause=1&player_id=0&app_id=58479" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Work 4">
+            </iframe>
+          </div>
+        </div>
       </div>
 
-      <!-- Секция вертикальных работ (4, 5) -->
+      <!-- Секция вертикальных работ (3 ролика) -->
       <div class="vertical-block">
         <div class="section-title">Vertical / Mobile AI</div>
         <div class="grid-vertical">
+          <!-- Новый ролик, umuna iti vertical -->
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe 
+                src="https://player.vimeo.com/video/1233924425?badge=0&autopause=1&player_id=0&app_id=58479" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                title="Vertical Work 1">
+              </iframe>
+            </div>
+          </div>
+
           <div class="video-card">
             <div class="video-wrapper">
               <iframe 
                 src="https://player.vimeo.com/video/1233556343?badge=0&autopause=1&player_id=0&app_id=58479" 
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                title="Work 4">
+                title="Vertical Work 2">
               </iframe>
             </div>
           </div>
@@ -360,14 +371,14 @@
               <iframe 
                 src="https://player.vimeo.com/video/1233558079?badge=0&autopause=1&player_id=0&app_id=58479" 
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                title="Work 5">
+                title="Vertical Work 3">
               </iframe>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Секция 3: Финальный ролик 6 (Real cinema) -->
+      <!-- Секция 3: Ролик Real cinema -->
       <div class="section-title">Narrative & Commercial</div>
       <div class="featured-block">
         <div class="video-card">
@@ -375,7 +386,7 @@
             <iframe 
               src="https://player.vimeo.com/video/1233566767?badge=0&autopause=1&player_id=0&app_id=58479" 
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-              title="Work 6">
+              title="Real Cinema Work">
             </iframe>
           </div>
           <div class="card-meta">
@@ -405,14 +416,14 @@
         const player = new Vimeo.Player(iframe);
         players.push(player);
 
-        // Возврат на 0 сек и пауза после завершения
+        // Agsubli iti 0 sec ken ag-pause kalpasan a malpas
         player.on('ended', () => {
           player.setCurrentTime(0).then(() => {
             player.pause();
           }).catch(err => console.error(err));
         });
 
-        // Пауза других видео при старте текущего
+        // I-pause dagiti sabali a video no adda ag-play
         player.on('play', () => {
           players.forEach(otherPlayer => {
             if (otherPlayer !== player) {
@@ -425,4 +436,3 @@
   </script>
 </body>
 </html>
-
